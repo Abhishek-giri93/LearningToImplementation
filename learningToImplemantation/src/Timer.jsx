@@ -9,6 +9,7 @@ export default function Timer() {
     const [isRunning, setIsRunning] = useState(false);
 
     useEffect(() => {
+        if (!isRunning) return;
         const intervalId = setInterval(() => {
             setSeconds((prevSeconds) => prevSeconds + 1);
         }, 1000);
@@ -16,7 +17,7 @@ export default function Timer() {
         return () => {
             clearInterval(intervalId);
         };
-    }, []);
+    }, [isRunning]);
 
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -29,10 +30,36 @@ export default function Timer() {
     ].join(":");
 
     return (
-        <div>
+        <div className="timer-container">
+            <h1>Live Timer</h1>
+            <p>Start the timer to competete with yourself.</p>
             <div className="timer-display">
                 {formattedTime}
             </div>
+            <div className="timer-controls">
+                <button onClick={() => setIsRunning(true)}
+                    disabled={isRunning}
+                >
+                    Start
+                </button>
+                <button onClick={() => {
+                    setIsRunning(false);
+
+                }
+                }
+                    disabled={!isRunning}
+                >
+                    Pause
+                </button>
+                <button onClick={() => {
+                    setIsRunning(false)
+                    setSeconds(0);
+                }}
+                >
+                    Reset
+                </button>
+            </div>
         </div>
+
     );
 }

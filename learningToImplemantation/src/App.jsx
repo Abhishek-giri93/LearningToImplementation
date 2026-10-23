@@ -32,8 +32,7 @@ export default function App() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Live Timer</h1>
-      <p>Start the timer to competete with yourself.</p>
+
       {show && <Counter />}
 
       <Timer />

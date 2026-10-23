@@ -12,3 +12,127 @@ body {
     font-size: 48px;
     color: #ff3030;
 }
+
+.timer-container {
+    text-align: center;
+    padding: 30px;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.timer-controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.timer-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: white
+}
+
+
+/* AI CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #211638, #172554);
+    color: #f8fafc;
+    font-family: Arial, sans-serif;
+}
+
+.timer-container {
+    width: min(90%, 600px);
+    margin: 80px auto;
+    padding: 36px 24px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.timer-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #e0e7ff;
+}
+
+.timer-container p {
+    color: #a5b4cc;
+}
+
+.timer-display {
+    margin: 30px 0;
+    padding: 28px 12px;
+    border-radius: 16px;
+    background: #111b31;
+    border: 1px solid #344467;
+    color: #ff526b;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 3px;
+    text-shadow: 0 0 12px rgba(255, 82, 107, 0.5);
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.timer-controls button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #6366f1;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.timer-controls button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.15);
+}
+
+.timer-controls button:nth-child(2) {
+    background: #334155;
+}
+
+.timer-controls button:nth-child(3) {
+    background: #be4560;
+}
+
+.timer-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .timer-container {
+        margin: 40px auto;
+        padding: 28px 16px;
+    }
+
+    .timer-container h1 {
+        font-size: 2rem;
+    }
+}
