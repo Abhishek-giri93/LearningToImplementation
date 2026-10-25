@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from "react";
 import Timer from "./Timer";
+import College from "./College";
+import { SubjectContext } from "./ContextData";
 
 
 function Counter() {
@@ -29,13 +31,27 @@ function Counter() {
 export default function App() {
 
   const [show, setShow] = useState(false);
+  const [subject, setSubject] = useState("");
 
   return (
-    <div style={{ padding: "20px" }}>
+    // <div style={{ padding: "20px" }}>
 
-      {show && <Counter />}
+    //   {show && <Counter />}
 
-      <Timer />
+    //   <Timer />
+    // </div>
+    <div>
+
+      <SubjectContext.Provider value={subject}>
+        <select name="subjects" id="subjects" onChange={(event) => setSubject(event.target.value)}>
+          <option value="Maths">Maths</option>
+          <option value="English">English</option>
+          <option value="Science">Science</option>
+        </select>
+        {/* <button>Subject</button> */}
+        <College />
+      </SubjectContext.Provider>
+      
     </div>
   );
 }
